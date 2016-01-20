@@ -6,7 +6,7 @@ Dev Setup Instructions
 You will need Java 1.8 installed
 You will need MYSQL installed and set up username and password
 
-Clone the git hub repository git clone https://github.com/womenhackfornonprofits/whfnp-volunteer-portal-api.git
+Clone the git hub repository with the command: git clone https://github.com/womenhackfornonprofits/whfnp-volunteer-portal-api.git
 
 In the src/main/database directory - use WHFNP_CreateDatabase.sql script and run in MySQL to create the required database for this application
 
