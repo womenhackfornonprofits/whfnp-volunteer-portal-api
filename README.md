@@ -1,7 +1,7 @@
 # whfnp-volunteer-portal-api
 Women Hack for Non Profits Volunteer Portal API (Backend)
 
-Data Access Layer (Entities and Repositories) for the future WHFNP PORTAL API
+*****Data Access Layer (Entities and Repositories) for the future WHFNP PORTAL API*****
 
 Dev Setup Instructions
 
