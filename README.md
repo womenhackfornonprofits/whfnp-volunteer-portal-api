@@ -19,7 +19,9 @@ Edit the application.properties file and update the URL, Username and password f
 
 Run the Application.java class to test the code
 
-The application should automatically create the required tables and relationships in the database, and populate with some test data.  Some results should be displayed in the console.
+The application should automatically create the required tables and relationships in the database, and populate with some test data. 
+
+Some test user records from the database should be displayed in the console.
 
 
 
