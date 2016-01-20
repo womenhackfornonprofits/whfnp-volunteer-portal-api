@@ -2,6 +2,7 @@ package com.whfnp.portal.model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Dionne on 06/01/2016.
@@ -36,6 +37,10 @@ public class User {
 
     @OneToMany(mappedBy="user")
     private List<VPType> vpTypes;
+
+    @ManyToMany(mappedBy = "users")
+    private Set<Project> projects;
+
 
     protected User(){}
 

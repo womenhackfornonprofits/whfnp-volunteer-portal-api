@@ -2,6 +2,8 @@ package com.whfnp.portal.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Dionne on 18/01/2016.
@@ -43,6 +45,12 @@ public class Project {
 
     @Column(name="STATUS")
     private String status;
+
+    @ManyToMany
+    @JoinTable(name="project_volunteers", joinColumns = {
+            @JoinColumn(name="project_id", nullable=false)},
+    inverseJoinColumns = {@JoinColumn(name="user_id", nullable=false)})
+    private Set<User> users = new HashSet<User>(0);
 
     protected Project(){
 
