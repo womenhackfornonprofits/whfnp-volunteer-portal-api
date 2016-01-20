@@ -6,7 +6,8 @@ Women Hack for Non Profits Volunteer Portal API (Backend)
 Dev Setup Instructions
 
 You will need Java 1.8 installed
-You will need MYSQL installed and set up username and password
+
+You will need MYSQL installed and set up a username and password
 
 Clone the git hub repository with the command: git clone https://github.com/womenhackfornonprofits/whfnp-volunteer-portal-api.git
 
