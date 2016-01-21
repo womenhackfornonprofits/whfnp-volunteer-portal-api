@@ -7,6 +7,8 @@ Dev Setup Instructions
 
 You will need Java 1.8 installed
 
+You will need Apache Maven 3.*  installed 
+
 You will need MYSQL installed and set up a username and password
 
 Clone the git hub repository with the command: git clone https://github.com/womenhackfornonprofits/whfnp-volunteer-portal-api.git
