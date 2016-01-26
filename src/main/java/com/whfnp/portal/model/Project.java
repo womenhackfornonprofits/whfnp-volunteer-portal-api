@@ -19,8 +19,9 @@ public class Project {
     @Column(name="PROJECT_NAME")
     private String projectName;
 
-    @Column(name="NON_PROFIT_ID")
-    private long nonProfitId;
+    @ManyToOne(optional=false)
+    @JoinColumn(name="non_profit_id")
+    private User nonProfit;
 
     @Column(name="DESCRIPTION")
     private String description;
@@ -37,39 +38,44 @@ public class Project {
     @Column(name="DEADLINE")
     private Date deadline;
 
-    @Column(name="APPROVED_BY")
-    private String approvedBy;
+    @ManyToOne(optional=true)
+    @JoinColumn(name="APPROVED_BY")
+    private User approvedBy;
 
     @Column(name="DATE_APPROVED")
     private Date dateApproved;
 
-    @Column(name="STATUS")
-    private String status;
+    @ManyToOne(optional=false)
+    @JoinColumn(name="STATUS_ID")
+    private Status status;
 
     @ManyToMany
-    @JoinTable(name="project_volunteers", joinColumns = {
-            @JoinColumn(name="project_id", nullable=false)},
-    inverseJoinColumns = {@JoinColumn(name="user_id", nullable=false)})
-    private Set<User> users = new HashSet<User>(0);
+    @JoinTable(name="PROJECT_SKILL", joinColumns = {
+            @JoinColumn(name="PROJECT_ID", nullable = false)},inverseJoinColumns = {@JoinColumn(name="SKILL_ID", nullable = false)})
+    private Set<Skill> requiredProjectSkills = new HashSet<Skill>(0);
+
+    @OneToMany(mappedBy="project")
+    private Set<ProjectVolunteer> projectVolunteers;
+
+    /*@ManyToMany
+    @JoinTable(name="PROJECT_VOLUNTEER", joinColumns = {
+            @JoinColumn(name="PROJECT_ID", nullable=false)},
+    inverseJoinColumns = {@JoinColumn(name="USER_ID", nullable=false)})
+    private Set<User> projectVolunteers = new HashSet<User>(0);*/
 
     protected Project(){
 
     }
 
-    public Project(String projectName, long nonProfitId, String description,
+    public Project(String projectName, String description,
                    long noVolunteersRequired, String technologyStack,
-                   Date startDate, Date deadline, String approvedBy,
-                   Date dateApproved, String status) {
+                   Date startDate, Date deadline) {
         this.projectName = projectName;
-        this.nonProfitId = nonProfitId;
         this.description = description;
         this.noVolunteersRequired = noVolunteersRequired;
         this.technologyStack = technologyStack;
         this.startDate = startDate;
         this.deadline = deadline;
-        this.approvedBy = approvedBy;
-        this.dateApproved = dateApproved;
-        this.status = status;
     }
 
     public long getId() {
@@ -88,12 +94,12 @@ public class Project {
         this.projectName = projectName;
     }
 
-    public long getNonProfitId() {
-        return nonProfitId;
+    public User getNonProfit() {
+       return nonProfit;
     }
 
-    public void setNonProfitId(long nonProfitId) {
-        this.nonProfitId = nonProfitId;
+    public void setNonProfit(User nonProfitId) {
+        this.nonProfit = nonProfitId;
     }
 
     public String getDescription() {
@@ -136,11 +142,11 @@ public class Project {
         this.deadline = deadline;
     }
 
-    public String getApprovedBy() {
+    public User getApprovedBy() {
         return approvedBy;
     }
 
-    public void setApprovedBy(String approvedBy) {
+    public void setApprovedBy(User approvedBy) {
         this.approvedBy = approvedBy;
     }
 
@@ -152,11 +158,11 @@ public class Project {
         this.dateApproved = dateApproved;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
@@ -165,7 +171,6 @@ public class Project {
         return "Project{" +
                 "id=" + id +
                 ", projectName='" + projectName + '\'' +
-                ", nonProfitId=" + nonProfitId +
                 ", description='" + description + '\'' +
                 ", noVolunteersRequired=" + noVolunteersRequired +
                 ", technologyStack='" + technologyStack + '\'' +

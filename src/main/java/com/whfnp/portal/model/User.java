@@ -38,8 +38,23 @@ public class User {
     @OneToMany(mappedBy="user")
     private List<VPType> vpTypes;
 
-    @ManyToMany(mappedBy = "users")
-    private Set<Project> projects;
+    @OneToMany(mappedBy="nonProfit")
+    private Set<Project> projectsSubmitted;
+
+    @OneToMany(mappedBy="approvedBy")
+    private Set<Project> projectsApproved;
+
+    @OneToMany(mappedBy="user")
+    private Set<ProjectVolunteer> userProjects;
+
+    /*@ManyToMany(mappedBy = "projectVolunteers")
+    private Set<Project> userProjects;*/
+
+    @ManyToMany
+    @JoinTable(name="VOLUNTEERSKILL", joinColumns = {
+            @JoinColumn(name="USER_ID", nullable = false)},
+    inverseJoinColumns = {@JoinColumn(name="SKILL_ID", nullable = false)})
+    private Set<Skill> userSkills;
 
 
     protected User(){}

@@ -1,6 +1,7 @@
 package com.whfnp.portal.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by Dionne on 18/01/2016.
@@ -15,6 +16,12 @@ public class Status {
 
     @Column(name="STATUS_NAME")
     private String statusName;
+
+    @OneToMany(mappedBy="status")
+    private Set<Project> projects;
+
+    @OneToMany(mappedBy="status")
+    private Set<ProjectVolunteer> projectVolunteers;
 
     protected Status(){
 

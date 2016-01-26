@@ -1,9 +1,7 @@
 package com.whfnp.portal.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by Dionne on 18/01/2016.
@@ -30,6 +28,15 @@ public class Skill {
 
     @Column(name="LEVEL")
     private String level;
+
+    @ManyToMany(mappedBy="requiredProjectSkills")
+    private Set<Project> projectsUsingSkill;
+
+    @ManyToMany(mappedBy="userSkills")
+    private Set<User> usersWithSkill;
+
+
+
 
     protected Skill(){
 

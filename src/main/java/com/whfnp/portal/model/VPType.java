@@ -16,15 +16,17 @@ public class VPType {
     @Column(name="ID")
     private long id;
 
-    @ManyToOne
-    @JoinColumn(name="user_id")
+    @ManyToOne(optional=false)
+    @JoinColumn(name="USER_ID")
     private User user;
 
-    @Column(name="FIELD_NAME")
+    @Column(name="FIELD_NAME",nullable = false)
     private String fieldName;
 
-    @Column(name="FIELD_VALUE")
+    @Column(name="FIELD_VALUE", nullable = true)
     private String fieldValue;
+
+    protected VPType() {}
 
     public VPType(String fieldName, String fieldValue){
         this.fieldName = fieldName;
@@ -37,6 +39,14 @@ public class VPType {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getFieldName() {
@@ -55,4 +65,13 @@ public class VPType {
         this.fieldValue = fieldValue;
     }
 
+    @Override
+    public String toString() {
+        return "VPType{" +
+                "id=" + id +
+                ", user=" + user +
+                ", fieldName='" + fieldName + '\'' +
+                ", fieldValue='" + fieldValue + '\'' +
+                '}';
+    }
 }
