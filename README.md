@@ -29,7 +29,7 @@ Example:
     			{"id":"1","skill":"Java"},
     			{"id":"2","skill":"MySQL"}     
     		],
-  	"vptypes":
+     "vptypes":
   		[
     			{"fieldName": "AgeRange","fieldValue":"25-35"},
     			{"fieldName": "Occupation","fieldValue":"Java Developer"},    			
