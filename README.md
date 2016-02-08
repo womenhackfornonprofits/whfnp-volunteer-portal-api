@@ -19,31 +19,31 @@ Example:
     "telephoneNumber":"01234567890",
     "type":"volunteer",
     "userRoles":
-  			[
-              {"id":"1"},
-              {"id":"2"}
-            ],	
-  	"status":{"id":"1"},  
-  	"userSkills":
-  			[
-    			{"id":"1"},
-    			{"id":"2"}    
+  		[
+              		{"id":"1","roleName":"user"},
+        		 {"id":"2","roleName":"admin"}
+        	],	
+     "status":{"id":"1","statusName":"Available"}, 
+     "userSkills":
+  		[
+    			{"id":"1","skill":"Java"},
+    			{"id":"2","skill":"MySQL"}     
     		],
   	"vptypes":
-  			[
+  		[
     			{"fieldName": "AgeRange","fieldValue":"25-35"},
     			{"fieldName": "Occupation","fieldValue":"Java Developer"},    			
-  				{"fieldName": "Location","fieldValue":"Location"},
+  			{"fieldName": "Location","fieldValue":"Location"},
     			{"fieldName": "Biography","fieldValue":"Experienced Java Developer 10 years, wanna be Mobile dev"},
-	   			{"fieldName": "LinkedinProfile","fieldValue":"https://www.linkedin.com/in/feecondor"},
-	   			{"fieldName": "TwitterHandle","fieldValue":"@feecondor"},
+	   		{"fieldName": "LinkedinProfile","fieldValue":"https://www.linkedin.com/in/feecondor"},
+	   		{"fieldName": "TwitterHandle","fieldValue":"@feecondor"},
     			{"fieldName": "AreasOfInterest","fieldValue":"Back-end, Front-end"},
     			{"fieldName": "AvailableFromDate","fieldValue":"04/01/2016"},
     			{"fieldName": "AvailableToDate","fieldValue":"20/12/2016"},
     			{"fieldName": "DisplayOnWebsite","fieldValue":"Y"},
     			{"fieldName": "Status","fieldValue":"Active"},
     			{"fieldName": "TimeCommittment","fieldValue":"5 hours per week"}
-  			]
+  		]
 }
 
 returns the following:
