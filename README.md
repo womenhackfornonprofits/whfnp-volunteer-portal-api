@@ -41,7 +41,6 @@ Example:
     			{"fieldName": "AvailableFromDate","fieldValue":"04/01/2016"},
     			{"fieldName": "AvailableToDate","fieldValue":"20/12/2016"},
     			{"fieldName": "DisplayOnWebsite","fieldValue":"Y"},
-    			{"fieldName": "Status","fieldValue":"Active"},
     			{"fieldName": "TimeCommittment","fieldValue":"5 hours per week"}
   		]
 }
