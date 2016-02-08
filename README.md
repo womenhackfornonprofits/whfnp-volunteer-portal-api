@@ -20,10 +20,10 @@ Example:
     "type":"volunteer",
     "userRoles":
   		[
-              		{"id":"1","roleName":"user"},
-        		 {"id":"2","roleName":"admin"}
+              		{"id":"1","roleName":"User"},
+        		 {"id":"2","roleName":"Admin"}
         	],	
-     "status":{"id":"1","statusName":"Available"}, 
+     "status":{"id":"1","statusName":"AVAILABLE"}, 
      "userSkills":
   		[
     			{"id":"1","skill":"Java"},
