@@ -9,6 +9,7 @@ POST /api/register/volunteer
 
 sending the Volunteer's details in the following Json format:
 
+Example:
 {
 
     "firstName":"Fiona",
@@ -72,6 +73,7 @@ GET /api/statuses
 
 returns the following:
 
+Example:
 {
 
   -0:{
@@ -106,6 +108,7 @@ GET /api/skills
 
 returns the following in Json format:
 
+Example:
 {
 
   -0:{
@@ -140,6 +143,7 @@ GET /api/roles
 
 returning the following in Json format:
 
+Example:
 {
 
   0:  {
