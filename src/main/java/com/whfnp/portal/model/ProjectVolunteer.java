@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 @Entity
 @IdClass(ProjectVolunteerId.class)
-public @Data class ProjectVolunteer {
+public @Data class ProjectVolunteer implements Serializable {
 
     @EmbeddedId
     private ProjectVolunteerId id = new ProjectVolunteerId();
@@ -30,6 +30,7 @@ public @Data class ProjectVolunteer {
 
 }
 
+@Embeddable
 class ProjectVolunteerId implements Serializable {
 
     @Id

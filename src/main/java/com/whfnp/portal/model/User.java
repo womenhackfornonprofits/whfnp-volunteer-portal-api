@@ -1,6 +1,12 @@
 package com.whfnp.portal.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Data;
+
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -8,7 +14,7 @@ import java.util.Set;
  * Created by Dionne on 06/01/2016.
  */
 @Entity(name="USER")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,16 +33,15 @@ public class User {
     @Column(name="TELEPHONE_NUMBER")
     private String telephoneNumber;
 
-    @ManyToOne
-    @JoinColumn(name="role_id")
-    private Role role;
-    //private Date dateCreated;
-
     @Column(name="TYPE")
     private String type;
 
-    @OneToMany(mappedBy="user")
-    private List<VPType> vpTypes;
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinColumn(name="STATUS_ID")
+    private Status status;
+
+    @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+    private Set<VPType> vptypes;
 
     @OneToMany(mappedBy="nonProfit")
     private Set<Project> projectsSubmitted;
@@ -47,14 +52,17 @@ public class User {
     @OneToMany(mappedBy="user")
     private Set<ProjectVolunteer> userProjects;
 
-    /*@ManyToMany(mappedBy = "projectVolunteers")
-    private Set<Project> userProjects;*/
+    @ManyToMany
+    @JoinTable(name="USER_ROLE", joinColumns = {
+            @JoinColumn(name="USER_ID")},
+            inverseJoinColumns={@JoinColumn(name="ROLE_ID")})
+    private Set<Role> userRoles = new HashSet<Role>();
 
     @ManyToMany
-    @JoinTable(name="VOLUNTEERSKILL", joinColumns = {
-            @JoinColumn(name="USER_ID", nullable = false)},
-    inverseJoinColumns = {@JoinColumn(name="SKILL_ID", nullable = false)})
-    private Set<Skill> userSkills;
+    @JoinTable(name="VOLUNTEER_SKILL", joinColumns = {
+            @JoinColumn(name="USER_ID")},
+    inverseJoinColumns = {@JoinColumn(name="SKILL_ID")})
+    private Set<Skill> userSkills = new HashSet<Skill>();
 
 
     protected User(){}
@@ -69,6 +77,10 @@ public class User {
 
     public long getId(){
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -103,13 +115,6 @@ public class User {
         this.telephoneNumber = telephoneNumber;
     }
 
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
 
     public String getType() {
         return type;
@@ -119,6 +124,68 @@ public class User {
         this.type = type;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public void setUserRoles(Set<Role> userRoles){
+
+        this.userRoles = userRoles;
+
+    }
+
+    public Set<Role> getUserRoles(){
+        return userRoles;
+    }
+
+    public Set<VPType> getVptypes() {
+        return vptypes;
+    }
+
+    public void setVptypes(Set<VPType> vptypes) {
+
+        for (VPType vptype : vptypes) {
+            vptype.setUser(this);
+        }
+        this.vptypes = vptypes;
+    }
+
+    public Set<Project> getProjectsSubmitted() {
+        return projectsSubmitted;
+    }
+
+    public void setProjectsSubmitted(Set<Project> projectsSubmitted) {
+        this.projectsSubmitted = projectsSubmitted;
+    }
+
+    public Set<Project> getProjectsApproved() {
+        return projectsApproved;
+    }
+
+    public void setProjectsApproved(Set<Project> projectsApproved) {
+        this.projectsApproved = projectsApproved;
+    }
+
+    public Set<ProjectVolunteer> getUserProjects() {
+        return userProjects;
+    }
+
+    public void setUserProjects(Set<ProjectVolunteer> userProjects) {
+        this.userProjects = userProjects;
+    }
+
+    public Set<Skill> getUserSkills() {
+        return userSkills;
+    }
+
+    public void setUserSkills(Set<Skill> userSkills) {
+        this.userSkills = userSkills;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -126,7 +193,6 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 ", telephoneNumber='" + telephoneNumber + '\'' +
-                ", role=" + role +
                 ", type='" + type + '\''+
                 '}';
     }

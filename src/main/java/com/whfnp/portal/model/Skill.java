@@ -1,5 +1,8 @@
 package com.whfnp.portal.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -7,6 +10,7 @@ import java.util.Set;
  * Created by Dionne on 18/01/2016.
  */
 @Entity
+@Data
 public class Skill {
 
     @Id
@@ -14,64 +18,39 @@ public class Skill {
     @Column(name="ID")
     private long id;
 
-    @Column(name="PROJECT_ID")
-    private long projectId;
-
-    @Column(name="USER_ID")
-    private long user_id;
-
     @Column(name="SKILL")
     private String skill;
 
     @Column(name="DESCRIPTION")
     private String description;
 
-    @Column(name="LEVEL")
-    private String level;
+    @Column(name="PROFICIENCY_LEVEL")
+    private String proficiencyLevel;
 
-    @ManyToMany(mappedBy="requiredProjectSkills")
+    @ManyToMany(mappedBy="requiredProjectSkills", fetch=FetchType.EAGER)
+    @JsonIgnore
     private Set<Project> projectsUsingSkill;
 
-    @ManyToMany(mappedBy="userSkills")
+    @ManyToMany(mappedBy="userSkills", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @JsonIgnore
     private Set<User> usersWithSkill;
-
-
-
 
     protected Skill(){
 
     }
 
-    public Skill(long projectId, long user_id, String skill, String description, String level) {
-        this.projectId = projectId;
-        this.user_id = user_id;
+    public Skill(String skill, String description, String proficiencyLevel) {
         this.skill = skill;
         this.description = description;
-        this.level = level;
+        this.proficiencyLevel = proficiencyLevel;
     }
-
+/*
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public long getProjectId() {
-        return projectId;
-    }
-
-    public void setProjectId(long projectId) {
-        this.projectId = projectId;
-    }
-
-    public long getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
     }
 
     public String getSkill() {
@@ -91,10 +70,10 @@ public class Skill {
     }
 
     public String getLevel() {
-        return level;
+        return proficiencyLevel;
     }
 
     public void setLevel(String level) {
-        this.level = level;
-    }
+        this.proficiencyLevel = proficiencyLevel;
+    }*/
 }

@@ -1,6 +1,10 @@
 package com.whfnp.portal.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,21 +13,21 @@ import java.util.Map;
  */
 
 @Entity
-public class VPType {
+public class VPType implements Serializable {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name="ID")
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-    @ManyToOne(optional=false)
-    @JoinColumn(name="USER_ID")
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    @JsonIgnore
     private User user;
 
-    @Column(name="FIELD_NAME",nullable = false)
+    @Column(name="FIELD_NAME")
     private String fieldName;
 
-    @Column(name="FIELD_VALUE", nullable = true)
+    @Column(name="FIELD_VALUE")
     private String fieldValue;
 
     protected VPType() {}
@@ -33,11 +37,11 @@ public class VPType {
         this.fieldValue = fieldValue;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -64,14 +68,5 @@ public class VPType {
     public void setFieldValue(String fieldValue) {
         this.fieldValue = fieldValue;
     }
-
-    @Override
-    public String toString() {
-        return "VPType{" +
-                "id=" + id +
-                ", user=" + user +
-                ", fieldName='" + fieldName + '\'' +
-                ", fieldValue='" + fieldValue + '\'' +
-                '}';
-    }
 }
+

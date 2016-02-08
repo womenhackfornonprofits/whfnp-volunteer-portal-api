@@ -1,13 +1,22 @@
 package com.whfnp.portal.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Created by Dionne on 18/01/2016.
  */
 @Entity
-public class Role {
+@Data
+public class Role implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -17,44 +26,22 @@ public class Role {
     @Column(name="ROLE_NAME")
     private String roleName;
 
-    @OneToMany(mappedBy="role")
-    private Set<User> user;
+    @ManyToMany(mappedBy="userRoles",fetch = FetchType.EAGER)
+    @JsonIgnore
+    private Set<User> roleUsers = new HashSet<>();
 
-    protected Role(){}
+    protected Role(){
+
+    }
 
     public Role(String roleName){
         this.roleName = roleName;
     }
 
-    public long getId() {
-        return id;
-    }
+    /*public void setRoleUsers(Set<User> roleUsers){
+        this.roleUsers = roleUsers;
+    }*/
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
-    public String getRoleName() {
-        return roleName;
-    }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
-
-    public Set<User> getUser() {
-        return user;
-    }
-
-    public void setUser(Set<User> user) {
-        this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "Role{" +
-                "id=" + id +
-                ", roleName='" + roleName + '\'' +
-                '}';
-    }
 }
