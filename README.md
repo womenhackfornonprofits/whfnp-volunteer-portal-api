@@ -33,7 +33,7 @@ Example:
   		[
     			{"fieldName": "AgeRange","fieldValue":"25-35"},
     			{"fieldName": "Occupation","fieldValue":"Java Developer"},    			
-  			{"fieldName": "Location","fieldValue":"Location"},
+  			{"fieldName": "Location","fieldValue":"London"},
     			{"fieldName": "Biography","fieldValue":"Experienced Java Developer 10 years, wanna be Mobile dev"},
 	   		{"fieldName": "LinkedinProfile","fieldValue":"https://www.linkedin.com/in/feecondor"},
 	   		{"fieldName": "TwitterHandle","fieldValue":"@feecondor"},
