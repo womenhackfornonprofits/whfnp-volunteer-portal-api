@@ -100,7 +100,7 @@ Example:
     			{"fieldName": "OrganisationName","fieldValue":"Pimp My Cause"},
     			{"fieldName": "Address","fieldValue":"123 Anywhere Rd, Anytown,UK EC1 2HP"},    			
   			{"fieldName": "Location","fieldValue":"London"},
-    			{"fieldName": "Biography","fieldValue":"Pimp My Cause brings together worthwhile causes with talentedmarketers – including innovators, strategists, advertisers, graphic designers, web developers, PR specialists and researchers who can provide transformational input pro bono."},
+    			{"fieldName": "Biography","fieldValue":"Pimp My Cause brings together worthwhile causes with talented marketers who can provide transformational input pro bono."},
 	   		{"fieldName": "Website","fieldValue":"http://www.pimpmycause.org"},
 	   		{"fieldName": "TwitterHandle","fieldValue":"@pimpmycause"},
     			{"fieldName": "LogoUrl","fieldValue":"http://www.pimpmycause.org/images/logo.png"},
