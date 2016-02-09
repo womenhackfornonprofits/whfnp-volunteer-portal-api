@@ -1,5 +1,7 @@
 package com.whfnp.portal.model;
 
+
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
