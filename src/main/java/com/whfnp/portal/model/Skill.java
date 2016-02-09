@@ -44,36 +44,5 @@ public class Skill {
         this.description = description;
         this.proficiencyLevel = proficiencyLevel;
     }
-/*
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getSkill() {
-        return skill;
-    }
-
-    public void setSkill(String skill) {
-        this.skill = skill;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getLevel() {
-        return proficiencyLevel;
-    }
-
-    public void setLevel(String level) {
-        this.proficiencyLevel = proficiencyLevel;
-    }*/
 }
