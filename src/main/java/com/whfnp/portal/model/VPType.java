@@ -13,6 +13,7 @@ import java.util.Map;
  */
 
 @Entity
+@Data
 public class VPType implements Serializable {
 
     @Id
@@ -37,36 +38,5 @@ public class VPType implements Serializable {
         this.fieldValue = fieldValue;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public String getFieldName() {
-        return fieldName;
-    }
-
-    public void setFieldName(String fieldName) {
-        this.fieldName = fieldName;
-    }
-
-    public String getFieldValue() {
-        return fieldValue;
-    }
-
-    public void setFieldValue(String fieldValue) {
-        this.fieldValue = fieldValue;
-    }
 }
 
