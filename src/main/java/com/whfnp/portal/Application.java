@@ -47,7 +47,7 @@ public class Application{
 
             //create some skills in the database
             Skill skill1 = new Skill("Java", "Java Programming","3");
-            Skill skill2 = new Skill("MySQL", "MySQL Development","3");
+            Skill skill2 = new Skill("MySQL", "MySQL Database Development","3");
             Skill skill3 = new Skill("Redis", "Redis Configuration","3");
 
             skillRepository.save(skill1);
