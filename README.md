@@ -1,7 +1,7 @@
 # whfnp-volunteer-portal-api
 Women Hack for Non Profits Volunteer Portal API (Backend)
 
-***Proposed PORTAL API for retrieving and saving data in the Portal Database***
+***Currently available PORTAL API uris for retrieving and saving data in the Portal Database***
 
 **Registering Volunteer**
 
