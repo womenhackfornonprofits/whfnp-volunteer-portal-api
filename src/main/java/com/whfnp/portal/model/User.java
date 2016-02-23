@@ -146,6 +146,7 @@ public class User implements Serializable {
         return vptypes;
     }
 
+
     public void setVptypes(Set<VPType> vptypes) {
 
         for (VPType vptype : vptypes) {
@@ -196,4 +197,5 @@ public class User implements Serializable {
                 ", type='" + type + '\''+
                 '}';
     }
+
 }

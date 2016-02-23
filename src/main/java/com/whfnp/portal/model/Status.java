@@ -3,6 +3,7 @@ package com.whfnp.portal.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,6 +13,7 @@ import java.util.Set;
  * Created by Dionne on 18/01/2016.
  */
 @Entity
+@Data
 public class Status implements Serializable {
 
     @Id
@@ -42,43 +44,5 @@ public class Status implements Serializable {
         this.statusName = statusName;
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getStatusName() {
-        return statusName;
-    }
-
-    public void setStatusName(String statusName) {
-        this.statusName = statusName;
-    }
-
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
-
-    public Set<Project> getProjects() {
-        return projects;
-    }
-
-    public void setProjects(Set<Project> projects) {
-        this.projects = projects;
-    }
-
-    public Set<ProjectVolunteer> getProjectVolunteers() {
-        return projectVolunteers;
-    }
-
-    public void setProjectVolunteers(Set<ProjectVolunteer> projectVolunteers) {
-        this.projectVolunteers = projectVolunteers;
-    }
 }

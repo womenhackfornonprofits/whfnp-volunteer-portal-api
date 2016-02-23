@@ -38,10 +38,4 @@ public class Role implements Serializable {
         this.roleName = roleName;
     }
 
-    /*public void setRoleUsers(Set<User> roleUsers){
-        this.roleUsers = roleUsers;
-    }*/
-
-
-
 }

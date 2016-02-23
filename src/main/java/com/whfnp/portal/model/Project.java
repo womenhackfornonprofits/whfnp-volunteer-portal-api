@@ -60,12 +60,6 @@ public class Project {
     @OneToMany(mappedBy="project")
     private Set<ProjectVolunteer> projectVolunteers;
 
-    /*@ManyToMany
-    @JoinTable(name="PROJECT_VOLUNTEER", joinColumns = {
-            @JoinColumn(name="PROJECT_ID", nullable=false)},
-    inverseJoinColumns = {@JoinColumn(name="USER_ID", nullable=false)})
-    private Set<User> projectVolunteers = new HashSet<User>(0);*/
-
     protected Project(){
 
     }
